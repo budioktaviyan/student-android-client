@@ -34,7 +34,7 @@ class StudentPresenter(
     }
 
     override fun onError(exception: Throwable) {
-      val entity = Entity(message = exception.response().message ?: "Something went wrong!")
+      val entity = Entity(message = exception.response().message)
       val model = Model(message = entity.message)
 
       getView().onHideLoading()

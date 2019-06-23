@@ -8,10 +8,15 @@ internal inline fun <reified T : Any> clazz() = T::class.java
 
 internal fun Throwable.response(): Response {
   val httpException = this as? HttpException
-  val message = httpException?.response()?.errorBody()?.let { response ->
-    val json = response.source().readUtf8().toString()
-    JSONObject(json).getString("message")
-  }
+  return when (httpException?.code()) {
+    404 -> Response("Terjadi kesalahan!")
+    else -> {
+      val message = httpException?.response()?.errorBody()?.let { response ->
+        val json = response.source().readUtf8().toString()
+        JSONObject(json).getString("message")
+      }
 
-  return Response(message)
+      Response(message ?: "Koneksi gagal")
+    }
+  }
 }

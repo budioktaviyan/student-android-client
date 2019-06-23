@@ -34,7 +34,7 @@ android {
     getByName("debug") {
       isDebuggable = true
       isMinifyEnabled = false
-      buildConfigField("String", "URL", "\"http://8d1ed059.ngrok.io\"")
+      buildConfigField("String", "URL", "\"http://e1ff2ca8.ngrok.io\"")
     }
   }
 }
