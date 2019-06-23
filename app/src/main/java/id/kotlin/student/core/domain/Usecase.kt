@@ -12,9 +12,9 @@ abstract class Usecase<T, in Params>(
 
   private val disposables: CompositeDisposable = CompositeDisposable()
 
-  protected abstract fun buildUsecaseObservable(params: Params): Single<T>
+  protected abstract fun buildUsecaseObservable(params: Params?): Single<T>
 
-  fun execute(singleObserver: DefaultObserver<T>, params: Params) {
+  fun execute(singleObserver: DefaultObserver<T>, params: Params?) {
     val single: Single<T> = buildUsecaseObservable(params)
         .subscribeOn(Schedulers.from(threadExecutor))
         .observeOn(postExecutionThread.scheduler)

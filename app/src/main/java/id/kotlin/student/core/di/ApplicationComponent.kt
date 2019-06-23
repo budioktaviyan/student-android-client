@@ -3,6 +3,7 @@ package id.kotlin.student.core.di
 import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
+import id.kotlin.student.features.student.StudentComponent
 import javax.inject.Singleton
 
 @Singleton
@@ -20,4 +21,6 @@ interface ApplicationComponent {
 
     fun build(): ApplicationComponent
   }
+
+  val student: StudentComponent.Builder
 }
