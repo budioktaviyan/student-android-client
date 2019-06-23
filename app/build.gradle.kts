@@ -9,7 +9,7 @@ plugins {
 @Suppress("OldTargetApi")
 android {
   compileSdkVersion(28)
-  buildToolsVersion = "28.0.3"
+  buildToolsVersion = "29.0.0"
 
   defaultConfig {
     applicationId = "id.kotlin.student"
